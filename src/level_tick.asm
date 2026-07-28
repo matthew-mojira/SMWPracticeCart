@@ -861,7 +861,7 @@ input_display_type:
 layout_tiles: ; byetudlraxlr
         db $0B,$22,$44,$1C,$41,$42,$40,$43,$0A,$21,$15,$1B
 no_button_tile:
-        db $27
+        db $FC ; blank
 layout_locations:
         db $46,$25,$43,$44,$01,$41,$20,$22,$27,$06,$03,$04 ; standard
         db $24,$04,$22,$23,$00,$20,$01,$21,$25,$05,$02,$03 ; compact horizontal 1
