@@ -758,19 +758,25 @@ meter_in_game_time:
         JSL !_F+$00974C ; hex2dec
         PHA
         TXA
+        CLC
+        ADC #$A0 ; dark yellow (alt set)
         STA [$00]
         INC $00
         PLA
+        CLC
+        ADC #$A0 ; dark yellow (alt set)
         STA [$00]
         RTS
-        
+
     .symbolic:
         LDA $06 ; igt fraction
         CMP #$26
         BCC +
         CLC
         ADC #$50
-      + STA [$00]
+      + CLC
+        ADC #$A0 ; dark yellow (alt set)
+        STA [$00]
         
     .nothing:
         RTS

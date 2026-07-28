@@ -875,7 +875,7 @@ init_statusbar_properties:
         LDA [!statusbar_layout_ptr],Y
         CMP #$01
         PHP
-        LDA #$38
+        LDA #$3C ; dark yellow (alt set)
         PLP
         BEQ .store_2
         BCS .store_1
