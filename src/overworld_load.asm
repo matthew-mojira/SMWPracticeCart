@@ -200,6 +200,76 @@ late_overworld_load:
         LDY #$01A0
         JSL load_vram
 
+        ; L/R shoulder button tiles for the SNES controller input display,
+        ; source tile index $60 (12 tiles)
+        LDX #$46D8
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$600
+        LDY #$00C0
+        JSL load_vram
+
+        ; up+left and up+right combo tiles for the SNES controller input
+        ; display, source tile index $70 (8 tiles)
+        LDX #$42B8
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$700
+        LDY #$0080
+        JSL load_vram
+
+        ; down+left and down+right combo tiles for the SNES controller
+        ; input display, source tile index $80 (8 tiles)
+        LDX #$42F8
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$800
+        LDY #$0080
+        JSL load_vram
+
+        ; start+Y, Y+X, X+A combo tiles for the SNES controller input
+        ; display, source tile index $90 (12 tiles)
+        LDX #$4738
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$900
+        LDY #$00C0
+        JSL load_vram
+
+        ; Y+B, B+A combo tiles for the SNES controller input display,
+        ; source tile index $9C (8 tiles)
+        LDX #$4798
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$9C0
+        LDY #$0080
+        JSL load_vram
+
+        ; select-only, start-only, and Y-only tiles for the SNES controller
+        ; input display, source tile index $78 (8 tiles)
+        LDX #$44C0
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$780
+        LDY #$0080
+        JSL load_vram
+
+        ; start+select combo tiles for the SNES controller input display,
+        ; source tile index $6C (4 tiles)
+        LDX #$4450
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$6C0
+        LDY #$0040
+        JSL load_vram
+
         LDX #$6B00
         STX $2116 ; vram address
         LDA #sprite_slots_graphics>>16

@@ -42,6 +42,7 @@
         02 - compact B (6x2)
         03 - compact C (3x4)
         04 - compact D (3x4)
+        05 - snes controller (7x3)
 0F - name (4)
         00 - green
         01 - white

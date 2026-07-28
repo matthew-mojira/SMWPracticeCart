@@ -798,6 +798,14 @@ meter_slowdown:
 ; draw the input display
 meter_input_display:
         PHP
+        LDA [!statusbar_layout_ptr],Y
+        CMP #$05
+        BNE .standard
+        JSR controller_display
+        PLP
+        RTS
+
+    .standard:
         REP #$20
         LDA [!statusbar_layout_ptr],Y
         AND #$00FF
@@ -822,7 +830,284 @@ meter_input_display:
         PLY
         PLP
         RTS
-    
+
+; SNES controller-shaped input display (7x3), submode 5
+controller_display:
+        LDA $00
+        STA $04 ; save origin
+
+        LDA !util_axlr_hold
+        AND #%00100000 ; L
+        BEQ +
+        LDA #$DE ; pressed
+        BRA ++
+      + LDA #$DB ; unpressed
+     ++ STA [$00] ; row0, col0
+        INC $00
+        INC A
+        STA [$00] ; row0, col1
+        INC $00
+        INC A
+        STA [$00] ; row0, col2
+
+        LDA $04
+        CLC
+        ADC #$04
+        STA $00
+        LDA !util_axlr_hold
+        AND #%00010000 ; R
+        BEQ +
+        LDA #$E4 ; pressed
+        BRA ++
+      + LDA #$E1 ; unpressed
+     ++ STA [$00] ; row0, col4
+        INC $00
+        INC A
+        STA [$00] ; row0, col5
+        INC $00
+        INC A
+        STA [$00] ; row0, col6
+
+        ; row1, col0 (up+left)
+        LDA !util_byetudlr_hold
+        AND #%00000010 ; left
+        LSR A
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%00001000 ; up
+        LSR #2
+        ORA $05
+        CLC
+        ADC #$57
+        PHA
+        LDA $04
+        CLC
+        ADC #$20
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row1, col1 (up+right)
+        LDA !util_byetudlr_hold
+        AND #%00000001 ; right
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%00001000 ; up
+        LSR #2
+        ORA $05
+        CLC
+        ADC #$5B
+        PHA
+        LDA $04
+        CLC
+        ADC #$21
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row2, col0 (down+left)
+        LDA !util_byetudlr_hold
+        AND #%00000010 ; left
+        LSR A
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%00000100 ; down
+        LSR A
+        ORA $05
+        CLC
+        ADC #$5F
+        PHA
+        LDA $04
+        CLC
+        ADC #$40
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row2, col1 (down+right)
+        LDA !util_byetudlr_hold
+        AND #%00000001 ; right
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%00000100 ; down
+        LSR A
+        ORA $05
+        CLC
+        ADC #$63
+        PHA
+        LDA $04
+        CLC
+        ADC #$41
+        STA $00
+        PLA
+        STA [$00]
+
+        ; col2, row1-2 (select-only, 2 tall)
+        LDA !util_byetudlr_hold
+        AND #%00100000 ; select
+        BEQ +
+        LDA #$9A ; pressed, top
+        STA $05
+        LDA #$9B ; pressed, bottom
+        BRA ++
+      + LDA #$98 ; unpressed, top
+        STA $05
+        LDA #$99 ; unpressed, bottom
+     ++ STA $06
+        LDA $04
+        CLC
+        ADC #$22
+        STA $00
+        LDA $05
+        STA [$00]
+        LDA $00
+        CLC
+        ADC #$20
+        STA $00
+        LDA $06
+        STA [$00]
+
+        ; row1, col3 (start+select combined)
+        LDA !util_byetudlr_hold
+        AND #%00100000 ; select
+        LSR #5
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%00010000 ; start
+        LSR #3
+        ORA $05
+        CLC
+        ADC #$8A
+        PHA
+        LDA $04
+        CLC
+        ADC #$23
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row1, col4 (start+Y)
+        LDA !util_byetudlr_hold
+        AND #%00010000 ; start
+        LSR #4
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%01000000 ; Y
+        LSR #5
+        ORA $05
+        CLC
+        ADC #$E7
+        PHA
+        LDA $04
+        CLC
+        ADC #$24
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row1, col5 (Y+X)
+        LDA !util_byetudlr_hold
+        AND #%01000000 ; Y
+        LSR #6
+        STA $05
+        LDA !util_axlr_hold
+        AND #%01000000 ; X
+        LSR #5
+        ORA $05
+        CLC
+        ADC #$EB
+        PHA
+        LDA $04
+        CLC
+        ADC #$25
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row1, col6 (X+A)
+        LDA !util_axlr_hold
+        AND #%01000000 ; X
+        LSR #6
+        STA $05
+        LDA !util_axlr_hold
+        AND #%10000000 ; A
+        LSR #6
+        ORA $05
+        CLC
+        ADC #$EF
+        PHA
+        LDA $04
+        CLC
+        ADC #$26
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row2, col5 (Y+B)
+        LDA !util_byetudlr_hold
+        AND #%01000000 ; Y
+        LSR #6
+        STA $05
+        LDA !util_byetudlr_hold
+        AND #%10000000 ; B
+        LSR #6
+        ORA $05
+        CLC
+        ADC #$F3
+        PHA
+        LDA $04
+        CLC
+        ADC #$45
+        STA $00
+        PLA
+        STA [$00]
+
+        ; row2, col6 (B+A)
+        LDA !util_byetudlr_hold
+        AND #%10000000 ; B
+        LSR #7
+        STA $05
+        LDA !util_axlr_hold
+        AND #%10000000 ; A
+        LSR #6
+        ORA $05
+        CLC
+        ADC #$F7
+        PHA
+        LDA $04
+        CLC
+        ADC #$46
+        STA $00
+        PLA
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$43 ; row2, col3 (start-only)
+        STA $00
+        LDA !util_byetudlr_hold
+        AND #%00010000 ; start
+        BEQ +
+        LDA #$9D ; pressed
+        BRA ++
+      + LDA #$9C ; unpressed
+     ++ STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$44 ; row2, col4 (Y-only)
+        STA $00
+        LDA !util_byetudlr_hold
+        AND #%01000000 ; Y
+        BEQ +
+        LDA #$9F ; pressed
+        BRA ++
+      + LDA #$9E ; unpressed
+     ++ STA [$00]
+
+        RTS
+
+
 input_display_type:
         LDA !util_axlr_hold
         LDX #$04

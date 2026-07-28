@@ -715,6 +715,7 @@ meter_text_input:
         db " COMPACT 2      "
         db " COMPACT 3      "
         db " COMPACT 4      "
+        db "  CONTROLLER    "
 meter_text_name:
         db "     GREEN      "
         db "     WHITE      "
