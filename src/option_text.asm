@@ -717,7 +717,12 @@ meter_text_input:
         db " COMPACT 4      "
         db "  CONTROLLER    "
 meter_text_name:
+        db "    COLOR 0     "
+        db "    COLOR 1     "
         db "     GREEN      "
+        db "      RED       "
+        db "    COLOR 4     "
+        db "    COLOR 5     "
         db "     WHITE      "
         db "    YELLOW      "
 meter_text_record:

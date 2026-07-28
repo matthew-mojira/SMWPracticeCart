@@ -912,7 +912,7 @@ init_statusbar_properties:
         JMP .store_4
 
     .rtc:
-        LDA #$2C
+        LDA #$38 ; white
         JMP .store_8
 
     .store_8:
@@ -1207,7 +1207,7 @@ init_statusbar_properties:
         RTS
 
 name_colors:
-        db $28,$38,$3C
+        db $20,$24,$28,$2C,$30,$34,$38,$3C
         
 title_screen_load:
         PHB
