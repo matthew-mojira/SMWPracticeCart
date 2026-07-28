@@ -2879,7 +2879,10 @@ draw_edited_status_bar:
         LDA [!statusbar_layout_ptr],Y
         PLY
         AND #$00FF
-        STA $05
+        CMP #$0005
+        BNE +
+        JMP .edited_controller
+      + STA $05
         ASL A
         CLC
         ADC $05
@@ -2918,6 +2921,126 @@ draw_edited_status_bar:
         INY #2
         BRA .edited_input_button
     .edited_input_exit:
+        RTS
+
+    ; static preview of the SNES-controller-shaped input display (7x3), submode 5
+    .edited_controller:
+        LDA $00
+        STA $04 ; save origin
+
+        LDA #$28DB ; row0, col0 (L)
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28DC ; row0, col1 (L)
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28DD ; row0, col2 (L)
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0008 ; row0, col4 (R)
+        STA $00
+        LDA #$28E1
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28E2 ; row0, col5 (R)
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28E3 ; row0, col6 (R)
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0040 ; row1, col0 (up+left)
+        STA $00
+        LDA #$2857
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0042 ; row1, col1 (up+right)
+        STA $00
+        LDA #$285B
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0080 ; row2, col0 (down+left)
+        STA $00
+        LDA #$285F
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0082 ; row2, col1 (down+right)
+        STA $00
+        LDA #$2863
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0044 ; col2, row1 (select, top)
+        STA $00
+        LDA #$2898
+        STA [$00]
+        LDA $00
+        CLC
+        ADC #$0040 ; col2, row2 (select, bottom)
+        STA $00
+        LDA #$2899
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0046 ; row1, col3 (start+select combined)
+        STA $00
+        LDA #$288A
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0048 ; row1, col4 (start+Y)
+        STA $00
+        LDA #$28E7
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28EB ; row1, col5 (Y+X)
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28EF ; row1, col6 (X+A)
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$008A ; row2, col5 (Y+B)
+        STA $00
+        LDA #$28F3
+        STA [$00]
+        INC $00
+        INC $00
+        LDA #$28F7 ; row2, col6 (B+A)
+        STA [$00]
+
+        LDA $04
+        CLC
+        ADC #$0086 ; row2, col3 (start-only)
+        STA $00
+        LDA #$289C
+        STA [$00]
+        LDA $00
+        CLC
+        ADC #$0002 ; row2, col4 (Y-only)
+        STA $00
+        LDA #$289E
+        STA [$00]
+
         RTS
         
     .edited_name:
