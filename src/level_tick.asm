@@ -230,11 +230,15 @@ meter_mario_speed:
       + JSL !_F+$00974C ; hex2dec
         PHA
         TXA
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         INC $00
         PLA
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
-        
+
         RTS
 
 ; draw the mario takeoff meter
@@ -423,33 +427,44 @@ meter_held_subpixel:
 meter_lag_frames:
         LDA $00
         PHA
-        
+
         LDA !dropped_frames+1
         PHA
         LSR #4
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         INC $00
         PLA
         AND #$0F
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         INC $00
         LDA !dropped_frames
         PHA
         LSR #4
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         INC $00
         PLA
         AND #$0F
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         INC $00
         LDA #$D7
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
-        
+
         PLA
         STA $00
-        
+
         LDX #$00 ; replace 0's with spaces cause it looks better for a 4 digit number
       - LDA [$00]
+        CMP #$A0 ; alt '0' tile
         BNE +
         LDA #$FC
         STA [$00]
@@ -457,7 +472,7 @@ meter_lag_frames:
         INX
         CPX #$03
         BNE -
-        
+
       + RTS
 
 ; draw the level timer meter
@@ -767,7 +782,12 @@ meter_slowdown:
         LDA !slowdown_speed
         BNE +
         LDA #$FB
+        INC A
+        STA [$00]
+        RTS
       + INC A
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         RTS
 

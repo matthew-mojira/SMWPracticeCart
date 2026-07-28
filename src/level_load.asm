@@ -817,7 +817,7 @@ init_statusbar_properties:
         JMP .store_2
         
     .lag_frames:
-        LDA #$2C
+        LDA #$28 ; dark red (alt set)
         JMP .store_5
         
     .timer_level:
@@ -882,7 +882,7 @@ init_statusbar_properties:
         RTS
     
     .slowdown:
-        LDA #$2C
+        LDA #$28 ; dark red (alt set)
         JMP .store_1
         
     .name:
