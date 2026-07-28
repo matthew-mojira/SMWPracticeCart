@@ -798,7 +798,7 @@ init_statusbar_properties:
         dw .rtc
 
     .mario_speed:
-        LDA #$2C
+        LDA #$28 ; dark red (alt set)
         JMP .store_2
         
     .memory_7e:
@@ -826,8 +826,9 @@ init_statusbar_properties:
         PHP
         LDA #$3C
         PLP
-        BEQ .store_6
+        BEQ +
         JMP .store_8
+      + JMP .store_6
         
     .timer_room:
         LDA [!statusbar_layout_ptr],Y
@@ -848,16 +849,21 @@ init_statusbar_properties:
         JMP .store_7
         
     .coin_count:
+        LDA [!statusbar_layout_ptr],Y
+        BNE .dragon_coins
+
         LDA #$3C
         STA [$00]
         INC $00
-        LDA [!statusbar_layout_ptr],Y
-        PHP
         LDA #$38
-        PLP
-        BEQ .store_2
+        JMP .store_2
+
+    .dragon_coins:
+        LDA #$28 ; green, both icon and digit
+        STA [$00]
+        INC $00
         JMP .store_1
-        
+
     .in_game_time:
         LDA #$3C
         STA [$00]
