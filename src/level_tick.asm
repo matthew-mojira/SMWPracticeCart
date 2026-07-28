@@ -122,7 +122,7 @@ display_meters:
         
       - LDA [!statusbar_layout_ptr],Y
         BEQ ++
-        CMP #$14
+        CMP #$15
         BCS ++
         INY #3
         LDA [!statusbar_layout_ptr],Y
@@ -174,7 +174,8 @@ display_meters:
         dw meter_memory_7e
         dw meter_memory_7f
         dw meter_rng
-    
+        dw meter_rtc
+
     .meter_fade:
         dw .nothing
         dw .nothing
@@ -196,6 +197,7 @@ display_meters:
         dw meter_memory_7e
         dw meter_memory_7f
         dw meter_rng
+        dw meter_rtc
 
 ; draw the item box meter (fixed position)
 meter_item_box:
@@ -1094,7 +1096,102 @@ meter_rng:
         AND #$0F
         STA [$00]
         RTS
-        
+
+; "UNSUPRTD"
+rtc_unsupported_string:
+        db $0D,$1D,$1B,$19,$1E,$1C,$17,$1E
+
+; draw the real time clock meter
+; submode 0 = up-time (not implemented on real hardware, always shows unsupported)
+; submode 1 = 24 hour, submode 2 = 12 hour, both read from the S-RTC chip at $802800/$802801
+meter_rtc:
+        LDA [!statusbar_layout_ptr],Y
+        BNE +
+        JMP .uptime
+
+      + LDA.L !clock_available
+        CMP #$BD
+        BEQ .wait
+
+    .uptime: ; temp label
+        LDX #$07
+      - LDA rtc_unsupported_string,X
+        STA $03,X
+        DEX
+        BPL -
+        BRA .draw
+
+    .wait:
+        ; bounded retry instead of an unbounded spin: a chip that never
+        ; settles to idle (e.g. under imperfect S-RTC emulation) used to
+        ; hang this routine forever and freeze the game
+        LDX #$10
+      - LDA.L $802800 ; clock dummy read
+        AND #$0F
+        CMP #$0F
+        BEQ +
+        DEX
+        BPL -
+        BRA .uptime
+
+      + LDA #$0D
+        STA.L $802801 ; clock latch
+        LDA.L $802800 ; clock dummy read
+        LDA.L $802800 ; clock seconds 1s
+        AND #$0F
+        STA $03
+        LDA.L $802800 ; clock seconds 10s
+        AND #$0F
+        STA $04
+        LDA.L $802800 ; clock minutes 1s
+        AND #$0F
+        STA $06
+        LDA.L $802800 ; clock minutes 10s
+        AND #$0F
+        STA $07
+        LDA.L $802800 ; clock hours 1s
+        AND #$0F
+        STA $09
+        LDA.L $802800 ; clock hours 10s
+        AND #$0F
+        STA $0A
+        LDA #$78
+        STA $05
+        STA $08
+
+        LDA [!statusbar_layout_ptr],Y
+        CMP #$01
+        BEQ .draw
+
+        LDA #$00
+        LDX $0A
+      - BEQ +
+        CLC
+        ADC #$0A
+        DEX
+        BRA -
+      + CLC
+        ADC $09
+        CMP #$0C
+        BCC .draw
+        SEC
+        SBC #$0C
+        JSL !_F+$00974C ; hex2dec
+        STX $0A
+        STA $09
+
+    .draw:
+        LDX #$07
+      - LDA $03,X
+        STA [$00]
+        INC $00
+        DEX
+        BPL -
+        BRA .done
+
+    .done:
+        RTS
+
 ; slow down the game depending on how large the slowdown number is
 wait_slowdown:
         LDA.W !slowdown_speed

@@ -54,7 +54,11 @@
         SS - byte
 12 - memory viewer (7F) (2)
         SS - byte
-13 - real time clock (8)
-        00 - uptime
+13 - random number generator (5)
+        00 - index
+        01 - value
+        02 - seed
+14 - real time clock (8)
+        00 - uptime (unsupported, always blank)
         01 - 24 hour
         02 - 12 hour

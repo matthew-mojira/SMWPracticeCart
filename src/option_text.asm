@@ -664,6 +664,7 @@ meter_names:
         db "MEMORY VIEWER   "
         db "MEMORY VIEWER   "
         db "RANDOM NUMBER   "
+        db "REALTIME CLOCK  "
 
 meter_types:
         dw meter_text_none
@@ -686,7 +687,8 @@ meter_types:
         dw meter_text_none
         dw meter_text_none
         dw meter_text_rng
-        
+        dw meter_text_rtc
+
 meter_text_none:
         db "                "
 meter_text_pmeter:
@@ -724,6 +726,10 @@ meter_text_rng:
         db "     INDEX      "
         db "     VALUE      "
         db "      SEED      "
+meter_text_rtc:
+        db "   UP-TIME      "
+        db "   24-HOUR      "
+        db "   12-HOUR      "
 
 meter_description:
         db "                                "
@@ -806,3 +812,7 @@ meter_description:
         db "  HELD VALUE ON THE             "
         db "  RANDOM NUMBER GENERATOR       "
         db "  OR INDEX OF THE VALUE         "
+        db "  CLOCK ONLY AVAILABLE ON RTC   "
+        db "  ENABLED SYSTEMS               "
+        db "                                "
+        db "  UP-TIME SINCE POWER ON        "

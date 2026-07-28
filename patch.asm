@@ -14,6 +14,9 @@ cleartable
 ; internal rom name
 ORG !_F+$00FFC0
         db "SMW PRACTICE CART    "
+; uses S-RTC chip
+ORG !_F+$00FFD6
+        db $55
 ; give the cartridge more SRAM
 ORG !_F+$00FFD8
         db $05

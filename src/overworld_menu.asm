@@ -1753,7 +1753,7 @@ meter_editor_mode: ; w$5460
         LDA [!statusbar_layout_ptr],Y
         DEC A
         BPL +
-        LDA #$13 ; number of meters
+        LDA #$14 ; number of meters
       + STA [!statusbar_layout_ptr],Y
         LDA #$00
         INY
@@ -1803,7 +1803,7 @@ meter_editor_mode: ; w$5460
         TAY
         LDA [!statusbar_layout_ptr],Y
         INC A
-        CMP #$14 ; number of meters + 1
+        CMP #$15 ; number of meters + 1
         BNE +
         LDA #$00
       + STA [!statusbar_layout_ptr],Y
@@ -2178,7 +2178,7 @@ draw_meter_cursors:
         RTL
 
 meter_subtype_counts:
-        db $01,$01,$01,$01,$02,$03,$03,$01,$03,$03,$03,$02,$03,$01,$05,$03,$02,$FF,$FF,$03
+        db $01,$01,$01,$01,$02,$03,$03,$01,$03,$03,$03,$02,$03,$01,$05,$03,$02,$FF,$FF,$03,$03
 meter_widths:
         db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
         db $04,$FF,$FF,$FF,$FF,$FF,$FF,$FF
@@ -2200,6 +2200,7 @@ meter_widths:
         db $02,$FF,$FF,$FF,$FF,$FF,$FF,$FF
         db $02,$FF,$FF,$FF,$FF,$FF,$FF,$FF
         db $05,$04,$04,$FF,$FF,$FF,$FF,$FF
+        db $08,$08,$08,$FF,$FF,$FF,$FF,$FF
 meter_heights:
         db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
         db $04,$FF,$FF,$FF,$FF,$FF,$FF,$FF
@@ -2220,6 +2221,7 @@ meter_heights:
         db $01,$01,$FF,$FF,$FF,$FF,$FF,$FF
         db $01,$FF,$FF,$FF,$FF,$FF,$FF,$FF
         db $01,$FF,$FF,$FF,$FF,$FF,$FF,$FF
+        db $01,$01,$01,$FF,$FF,$FF,$FF,$FF
         db $01,$01,$01,$FF,$FF,$FF,$FF,$FF
 
 draw_meter_names:
@@ -2498,7 +2500,8 @@ draw_edited_status_bar:
         dw .edited_memory_7e
         dw .edited_memory_7f
         dw .edited_rng
-        
+        dw .edited_rtc
+
     .edited_item_box:
         LDA $03
         CLC
@@ -3054,6 +3057,32 @@ draw_edited_status_bar:
         INY #2
         STA [$00],Y
         INY #2
+        STA [$00],Y
+        RTS
+
+    .edited_rtc:
+        LDA #$3801
+        STA [$00],Y
+        INY #2
+        LDA #$3802
+        STA [$00],Y
+        INY #2
+        LDA #$3878
+        STA [$00],Y
+        INY #2
+        LDA #$3803
+        STA [$00],Y
+        INY #2
+        LDA #$3804
+        STA [$00],Y
+        INY #2
+        LDA #$3878
+        STA [$00],Y
+        INY #2
+        LDA #$3805
+        STA [$00],Y
+        INY #2
+        LDA #$3806
         STA [$00],Y
         RTS
 

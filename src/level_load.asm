@@ -714,7 +714,7 @@ init_statusbar_properties:
         STA $00
         
         LDA [!statusbar_layout_ptr],Y
-        CMP #$14
+        CMP #$15
         BCS +
         ASL A
         TAX
@@ -795,7 +795,8 @@ init_statusbar_properties:
         dw .memory_7e
         dw .memory_7f
         dw .rng
-        
+        dw .rtc
+
     .mario_speed:
         LDA #$2C
         JMP .store_2
@@ -900,7 +901,11 @@ init_statusbar_properties:
         PLP
         BEQ .store_5
         JMP .store_4
-        
+
+    .rtc:
+        LDA #$2C
+        JMP .store_8
+
     .store_8:
         STA [$00]
         INC $00
