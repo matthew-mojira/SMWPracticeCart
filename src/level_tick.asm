@@ -1486,12 +1486,18 @@ meter_rtc:
       + CLC
         ADC $09
         CMP #$0C
-        BCC .draw
+        BCC .draw12
         SEC
         SBC #$0C
         JSL !_F+$00974C ; hex2dec
         STX $0A
         STA $09
+
+    .draw12:
+        LDA $0A
+        BNE .draw
+        LDA #$FC
+        STA $0A
 
     .draw:
         LDX #$07
