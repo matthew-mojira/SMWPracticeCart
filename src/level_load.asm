@@ -812,8 +812,11 @@ init_statusbar_properties:
         
     .mario_pmeter:
     .memory_7f:
-    .held_subpixel:
         LDA #$3C
+        JMP .store_2
+
+    .held_subpixel:
+        LDA #$38 ; white
         JMP .store_2
         
     .lag_frames:
