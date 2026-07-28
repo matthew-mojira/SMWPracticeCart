@@ -243,11 +243,15 @@ meter_mario_takeoff:
         JSL !_F+$00974C ; hex2dec
         PHA
         TXA
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
         INC $00
         PLA
+        CLC
+        ADC #$A0 ; alt hex character set
         STA [$00]
-        
+
         RTS
 
 ; draw the mario p meter
