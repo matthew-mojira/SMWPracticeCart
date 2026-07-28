@@ -189,7 +189,15 @@ late_overworld_load:
         PHK
         PLA ; #bank of overworld_layer_3_tiles
         LDX #overworld_layer_3_tiles+$200
-        LDY #$0100
+        LDY #$0240
+        JSL load_vram
+
+        LDX #$4050
+        STX $2116 ; vram address
+        PHK
+        PLA ; #bank of overworld_layer_3_tiles
+        LDX #overworld_layer_3_tiles+$440
+        LDY #$01A0
         JSL load_vram
 
         LDX #$6B00

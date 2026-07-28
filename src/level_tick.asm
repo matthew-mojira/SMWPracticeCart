@@ -455,8 +455,6 @@ meter_lag_frames:
         STA [$00]
         INC $00
         LDA #$D7
-        CLC
-        ADC #$A0 ; alt hex character set
         STA [$00]
 
         PLA
