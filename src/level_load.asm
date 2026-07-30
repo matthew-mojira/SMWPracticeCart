@@ -981,7 +981,7 @@ init_statusbar_properties:
         LDA $00
         STA $04 ; save origin
 
-        LDA #$28 ; green
+        LDA #$3C ; yellow
         STA [$00] ; row0, col0 (L)
         INC $00
         STA [$00] ; row0, col1 (L)
@@ -992,7 +992,7 @@ init_statusbar_properties:
         CLC
         ADC #$04
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00] ; row0, col4 (R)
         INC $00
         STA [$00] ; row0, col5 (R)
@@ -1003,7 +1003,7 @@ init_statusbar_properties:
         CLC
         ADC #$20 ; row1, col0 (up+left)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00] ; row1, col1 (up+right)
@@ -1012,7 +1012,7 @@ init_statusbar_properties:
         CLC
         ADC #$40 ; row2, col0 (down+left)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00] ; row2, col1 (down+right)
@@ -1021,27 +1021,27 @@ init_statusbar_properties:
         CLC
         ADC #$22 ; col2, row1 (select-only, top)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         LDA $00
         CLC
         ADC #$20 ; col2, row2 (select-only, bottom)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
 
         LDA $04
         CLC
         ADC #$23 ; row1, col3 (start+select combined)
         STA $00
-        LDA #$28 ; green
+        LDA #$3C ; yellow
         STA [$00]
 
         LDA $04
         CLC
         ADC #$24 ; row1, col4 (start+Y)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00] ; row1, col5 (Y+X)
@@ -1052,7 +1052,7 @@ init_statusbar_properties:
         CLC
         ADC #$45 ; row2, col5 (Y+B)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00] ; row2, col6 (B+A)
@@ -1061,18 +1061,18 @@ init_statusbar_properties:
         CLC
         ADC #$43 ; row2, col3 (start-only)
         STA $00
-        LDA #$28 ; green
+        LDA #$3C ; yellow
         STA [$00]
         LDA $00
         CLC
         ADC #$01 ; row2, col4 (Y-only)
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         RTS
 
     .wide:
-        LDA #$28
+        LDA #$3C
         INC $00
         STA [$00]
         INC $00
@@ -1087,7 +1087,7 @@ init_statusbar_properties:
         CLC
         ADC #$1A
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         INC $00
@@ -1103,7 +1103,7 @@ init_statusbar_properties:
         CLC
         ADC #$1A
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         INC $00
@@ -1116,7 +1116,7 @@ init_statusbar_properties:
         RTS
         
     .compact_horiz:
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00]
@@ -1132,7 +1132,7 @@ init_statusbar_properties:
         CLC
         ADC #$1B
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00]
@@ -1147,7 +1147,7 @@ init_statusbar_properties:
         RTS
         
     .compact_vert:
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00]
@@ -1157,7 +1157,7 @@ init_statusbar_properties:
         CLC
         ADC #$1E
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00]
@@ -1167,7 +1167,7 @@ init_statusbar_properties:
         CLC
         ADC #$1E
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00]
@@ -1177,7 +1177,7 @@ init_statusbar_properties:
         CLC
         ADC #$1E
         STA $00
-        LDA #$28
+        LDA #$3C
         STA [$00]
         INC $00
         STA [$00]
