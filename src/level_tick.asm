@@ -874,14 +874,8 @@ controller_display:
 
         ; row1, col0 (up+left)
         LDA !util_byetudlr_hold
-        AND #%00000010 ; left
-        LSR
-        STA $05
-        LDA !util_byetudlr_hold
-        AND #%00001000 ; up
+        AND #%00001010 ; left+up
         LSR #2
-        ORA $05
-        CLC
         ADC #$57
         STA [$00]
         INC $00
@@ -894,7 +888,6 @@ controller_display:
         AND #%00001000 ; up
         LSR #2
         ORA $05
-        CLC
         ADC #$5B
         STA [$00]
         INC $00
@@ -912,7 +905,6 @@ controller_display:
         LDA !util_byetudlr_hold
         AND #%00110000 ; S+S
         LSR #4
-        CLC
         ADC #$8A
         STA [$00]
         INC $00
@@ -926,7 +918,6 @@ controller_display:
         AND #%01000000 ; Y
         ROL #4
         ORA $03
-        CLC
         ADC #$E7
         STA [$00]
         INC $00
@@ -940,7 +931,6 @@ controller_display:
         AND #%01000000 ; X
         ORA $04
         LSR #5
-        CLC
         ADC #$EB
         STA [$00]
         INC $00
@@ -964,7 +954,6 @@ controller_display:
         LDA !util_byetudlr_hold
         AND #%00000110 ; left
         LSR
-        CLC
         ADC #$5F
         STA [$00]
         INC $00
@@ -974,7 +963,6 @@ controller_display:
         AND #%00000100 ; down
         LSR
         ORA $05
-        CLC
         ADC #$63
         STA [$00]
         INC $00
@@ -983,7 +971,6 @@ controller_display:
         LDA !util_byetudlr_hold
         AND #%00100000 ; select
         LSR #4
-        CLC
         ADC #$99
         STA [$00]
         INC $00
@@ -992,7 +979,6 @@ controller_display:
         LDA !util_byetudlr_hold
         AND #%00010000 ; start
         LSR #4
-        CLC
         ADC #$9C
         STA [$00]
         INC $00

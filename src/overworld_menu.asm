@@ -3109,29 +3109,6 @@ draw_edited_status_bar:
         RTS
 
     .edited_rtc:
-        LDA #$3801
-        STA [$00],Y
-        INY #2
-        LDA #$3802
-        STA [$00],Y
-        INY #2
-        LDA #$3878
-        STA [$00],Y
-        INY #2
-        LDA #$3803
-        STA [$00],Y
-        INY #2
-        LDA #$3804
-        STA [$00],Y
-        INY #2
-        LDA #$3878
-        STA [$00],Y
-        INY #2
-        LDA #$3805
-        STA [$00],Y
-        INY #2
-        LDA #$3806
-        STA [$00],Y
         RTS
 
 print "inserted ", bytes, "/32768 bytes into bank $19"

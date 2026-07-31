@@ -977,7 +977,7 @@ init_statusbar_properties:
         dw .controller
 
     .controller:
-        LDA #$3C
+        LDA #$28
         STA [$00]
         INC $00
         STA [$00]
@@ -995,7 +995,7 @@ init_statusbar_properties:
         CLC
         ADC #$1A
         STA $00
-        LDA #$3C
+        LDA #$28
         STA [$00]
         INC $00
         STA [$00]
@@ -1013,7 +1013,7 @@ init_statusbar_properties:
         CLC
         ADC #$1A
         STA $00
-        LDA #$3C
+        LDA #$28
         STA [$00]
         INC $00
         STA [$00]
