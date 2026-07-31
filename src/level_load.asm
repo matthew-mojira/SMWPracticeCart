@@ -943,7 +943,7 @@ init_statusbar_properties:
     .movie_recording:
         LDA [!statusbar_layout_ptr],Y
         BEQ +
-        LDA #$2C
+        LDA #$28 ; dark red (alt set)
         JMP .store_4
       + LDA #$28
         STA [$00]
@@ -1166,7 +1166,7 @@ init_statusbar_properties:
         RTS
 
 name_colors:
-        db $20,$24,$28,$2C,$30,$34,$38,$3C
+        db $28,$38,$3C,$28,$38,$3C ; green,white,yellow,red,blue,orange
         
 title_screen_load:
         PHB
