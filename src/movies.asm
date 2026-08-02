@@ -222,13 +222,13 @@ movie_YI1_B:
         db "YI1 WITH CAPE       "
 		incbin "bin/movies/yi1_cape.smwmovie"
 movie_YI2_A:
-        db "YI2 SMALL MARIO     "
+        db "YI2 SMALL LUIGI     "
 		incbin "bin/movies/yi2_small.smwmovie"
 movie_YI2_B:
         db "YI2 GET CLOUD       "
 		incbin "bin/movies/yi2_cloud.smwmovie"
 movie_YI3_A:
-        db "YI3 SMALL MARIO     "
+        db "YI3 SMALL LUIGI     "
 		incbin "bin/movies/yi3_small.smwmovie"
 movie_YI3_B:
         db "YI3 POWERUP INC     "
@@ -243,13 +243,13 @@ movie_YSP_A:
         db "YSP PIPE FLY        "
 		incbin "bin/movies/ysp_pipefly.smwmovie"
 movie_YSP_B:
-        db "YSP SMALL MARIO     "
+        db "YSP SMALL LUIGI     "
 		incbin "bin/movies/ysp_small.smwmovie"
 movie_C1_A:
         db "C1 GET FIRE         "
 		incbin "bin/movies/c1_fire.smwmovie"
 movie_C1_B:
-        db "C1 SMALL MARIO      "
+        db "C1 SMALL LUIGI      "
 		incbin "bin/movies/c1_small.smwmovie"
 
 movie_DP1_A:
@@ -265,16 +265,16 @@ movie_DP2_B:
         db "DP2 SMALL NORMAL    "
 		incbin "bin/movies/dp2_small.smwmovie"
 movie_DP3_A:
-        db "DP3 FIRE MARIO      "
+        db "DP3 FIRE LUIGI      "
 		incbin "bin/movies/dp3_fire.smwmovie"
 movie_DP3_B:
-        db "DP3 SMALL MARIO     "
+        db "DP3 SMALL LUIGI     "
 		incbin "bin/movies/dp3_small.smwmovie"
 movie_DP4_A:
-        db "DP4 FIRE MARIO      "
+        db "DP4 FIRE LUIGI      "
 		incbin "bin/movies/dp4_fire.smwmovie"
 movie_DP4_B:
-        db "DP4 SMALL MARIO     "
+        db "DP4 SMALL LUIGI     "
 		incbin "bin/movies/dp4_small.smwmovie"
 movie_DS1_A:
         db "DS1 CAPE SECRET     "
@@ -283,10 +283,10 @@ movie_DS1_B:
         db "DS1 SMALL NORMAL    "
 		incbin "bin/movies/ds1_small.smwmovie"
 movie_DS2_A:
-        db "DS2 CAPE MARIO      "
+        db "DS2 CAPE LUIGI      "
 		incbin "bin/movies/ds2_cape.smwmovie"
 movie_DS2_B:
-        db "DS2 SMALL MARIO     "
+        db "DS2 SMALL LUIGI     "
 		incbin "bin/movies/ds2_small.smwmovie"
 movie_DGH_A:
         db "DGH SMALL NORMAL    "
@@ -304,19 +304,19 @@ movie_GSP_A:
         db "GSP PIPE FLY        "
 		incbin "bin/movies/gsp_pipefly.smwmovie"
 movie_GSP_B:
-        db "GSP SMALL MARIO     "
+        db "GSP SMALL LUIGI     "
 		incbin "bin/movies/gsp_small.smwmovie"
 movie_TSA_A:
         db "TSA COLLECT ORB     "
 		incbin "bin/movies/tsa_orb.smwmovie"
 movie_TSA_B:
-        db "TSA MARIO DIES      "
+        db "TSA LUIGI DIES      "
 		incbin "bin/movies/tsa_death.smwmovie"
 movie_C2_A:
-        db "C2 CAPE MARIO       "
+        db "C2 CAPE LUIGI       "
 		incbin "bin/movies/c2_cape.smwmovie"
 movie_C2_B:
-        db "C2 FIRE MARIO       "
+        db "C2 FIRE LUIGI       "
 		incbin "bin/movies/c2_nocape.smwmovie"
 
 movie_VD1_A:
@@ -338,10 +338,10 @@ movie_VD3_B:
         db "VD3 NO CAPE         "
 		incbin "bin/movies/vd3_nocape.smwmovie"
 movie_VD4_A:
-        db "VD4 CAPE MARIO      "
+        db "VD4 CAPE LUIGI      "
 		incbin "bin/movies/vd4_cape.smwmovie"
 movie_VD4_B:
-        db "VD4 SMALL MARIO     "
+        db "VD4 SMALL LUIGI     "
 		incbin "bin/movies/vd4_small.smwmovie"
 movie_VS1_A:
         db "VS1 CAPE NORMAL     "
@@ -350,77 +350,77 @@ movie_VS1_B:
         db "VS1 CAPELESS NORMAL "
 		incbin "bin/movies/vs1_nocape.smwmovie"
 movie_VS2_A:
-        db "VS2 FIRE MARIO      "
+        db "VS2 FIRE LUIGI      "
 		incbin "bin/movies/vs2_nocape.smwmovie"
 movie_VS2_B:
         db "VS2 GRAB EXTRA FIRE "
 		incbin "bin/movies/vs2_fire.smwmovie"
 movie_VS3_A:
-        db "VS3 FIRE MARIO      "
+        db "VS3 FIRE LUIGI      "
 		incbin "bin/movies/vs3_nocape.smwmovie"
 movie_VS3_B:
         db "VS3 DRAGON COINS    "
 		incbin "bin/movies/vs3_ld.smwmovie"
 movie_VGH_A:
-        db "VGH CAPE MARIO      "
+        db "VGH CAPE LUIGI      "
 		incbin "bin/movies/vgh_cape.smwmovie"
 movie_VGH_B:
-        db "VGH SMALL MARIO     "
+        db "VGH SMALL LUIGI     "
 		incbin "bin/movies/vgh_small.smwmovie"
 movie_RSP_A:
         db "RSP CAPE PIPE FLY   "
 		incbin "bin/movies/rsp_pipefly.smwmovie"
 movie_RSP_B:
-        db "RSP SMALL MARIO     "
+        db "RSP SMALL LUIGI     "
 		incbin "bin/movies/rsp_small.smwmovie"
 movie_VF_A:
-        db "VF CAPE MARIO       "
+        db "VF CAPE LUIGI       "
 		incbin "bin/movies/vf_cape.smwmovie"
 movie_VF_B:
-        db "VF SMALL MARIO      "
+        db "VF SMALL LUIGI      "
 		incbin "bin/movies/vf_small.smwmovie"
 movie_C3_A:
-        db "C3 CAPE MARIO       "
+        db "C3 CAPE LUIGI       "
 		incbin "bin/movies/c3_cape.smwmovie"
 movie_C3_B:
-        db "C3 FIRE MARIO       "
+        db "C3 FIRE LUIGI       "
 		incbin "bin/movies/c3_nocape.smwmovie"
 
 movie_BB1_A:
-        db "BB1 CAPE MARIO      "
+        db "BB1 CAPE LUIGI      "
 		incbin "bin/movies/bb1_cape.smwmovie"
 movie_BB1_B:
-        db "BB1 FIRE MARIO      "
+        db "BB1 FIRE LUIGI      "
 		incbin "bin/movies/bb1_nocape.smwmovie"
 movie_BB2_A:
-        db "BB2 FIRE MARIO      "
+        db "BB2 FIRE LUIGI      "
 		incbin "bin/movies/bb2_nocape.smwmovie"
 movie_BB2_B:
-        db "BB2 SMALL MARIO     "
+        db "BB2 SMALL LUIGI     "
 		incbin "bin/movies/bb2_small.smwmovie"
 movie_CBA_A:
-        db "CBA CAPE MARIO      "
+        db "CBA CAPE LUIGI      "
 		incbin "bin/movies/cba_cape.smwmovie"
 movie_CBA_B:
-        db "CBA FIRE MARIO      "
+        db "CBA FIRE LUIGI      "
 		incbin "bin/movies/cba_nocape.smwmovie"
 movie_CM_A:
-        db "CM CAPE MARIO       "
+        db "CM CAPE LUIGI       "
 		incbin "bin/movies/cm_cape.smwmovie"
 movie_CM_B:
         db "CM BOSS KILL        "
 		incbin "bin/movies/cm_cmbk.smwmovie"
 movie_SL_A:
-        db "SL CAPE MARIO       "
+        db "SL CAPE LUIGI       "
 		incbin "bin/movies/sl_cape.smwmovie"
 movie_SL_B:
         db "SL DRAGON COINS     "
 		incbin "bin/movies/sl_ld.smwmovie"
 movie_C4_A:
-        db "C4 CAPE MARIO       "
+        db "C4 CAPE LUIGI       "
 		incbin "bin/movies/c4_cape.smwmovie"
 movie_C4_B:
-        db "C4 FIRE MARIO       "
+        db "C4 FIRE LUIGI       "
 		incbin "bin/movies/c4_nocape.smwmovie"
 
 print "inserted ", bytes, "/32768 bytes into bank $1B"
@@ -439,10 +439,10 @@ movie_FoI2_A:
         db "FOI2 YOSHI CLIP     "
 		incbin "bin/movies/foi2_clip.smwmovie"
 movie_FoI2_B:
-        db "FOI2 SMALL MARIO    "
+        db "FOI2 SMALL LUIGI    "
 		incbin "bin/movies/foi2_small.smwmovie"
 movie_FoI3_A:
-        db "FOI3 FIRE MARIO     "
+        db "FOI3 FIRE LUIGI     "
 		incbin "bin/movies/foi3_nocape.smwmovie"
 movie_FoI3_B:
         db "FOI3 DRAGON COINS   "
@@ -454,10 +454,10 @@ movie_FoI4_B:
         db "FOI4 COLLECT FIRE   "
 		incbin "bin/movies/foi4_firegrab.smwmovie"
 movie_FSA_A:
-        db "FSA CAPE MARIO      "
+        db "FSA CAPE LUIGI      "
 		incbin "bin/movies/fsa_cape.smwmovie"
 movie_FSA_B:
-        db "FSA SMALL MARIO     "
+        db "FSA SMALL LUIGI     "
 		incbin "bin/movies/fsa_small.smwmovie"
 movie_FGH_A:
         db "FGH CAPE NORMAL     "
@@ -469,26 +469,26 @@ movie_BSP_A:
         db "BSP CAPE PIPE FLY   "
 		incbin "bin/movies/bsp_pipefly.smwmovie"
 movie_BSP_B:
-        db "BSP SMALL MARIO     "
+        db "BSP SMALL LUIGI     "
 		incbin "bin/movies/bsp_small.smwmovie"
 movie_FF_A:
-        db "FF CAPE MARIO       "
+        db "FF CAPE LUIGI       "
 		incbin "bin/movies/ff_cape.smwmovie"
 movie_FF_B:
-        db "FF FIRE MARIO       "
+        db "FF FIRE LUIGI       "
 		incbin "bin/movies/ff_nocape.smwmovie"
 movie_C5_A:
-        db "C5 CAPE MARIO       "
+        db "C5 CAPE LUIGI       "
 		incbin "bin/movies/c5_cape.smwmovie"
 movie_C5_B:
-        db "C5 FIRE MARIO       "
+        db "C5 FIRE LUIGI       "
 		incbin "bin/movies/c5_nocape.smwmovie"
 
 movie_CI1_A:
-        db "CI1 CAPE MARIO      "
+        db "CI1 CAPE LUIGI      "
 		incbin "bin/movies/ci1_cape.smwmovie"
 movie_CI1_B:
-        db "CI1 FIRE MARIO      "
+        db "CI1 FIRE LUIGI      "
 		incbin "bin/movies/ci1_nocape.smwmovie"
 movie_CI2_A:
         db "CI2 CAPE NORMAL     "
@@ -503,53 +503,53 @@ movie_CI3_B:
         db "CI3 SMALL SECRET    "
 		incbin "bin/movies/ci3_small.smwmovie"
 movie_CI4_A:
-        db "CI4 CAPE MARIO      "
+        db "CI4 CAPE LUIGI      "
 		incbin "bin/movies/ci4_cape.smwmovie"
 movie_CI4_B:
-        db "CI4 CAPELESS MARIO  "
+        db "CI4 CAPELESS LUIGI  "
 		incbin "bin/movies/ci4_nocape.smwmovie"
 movie_CI5_A:
-        db "CI5 CAPE MARIO      "
+        db "CI5 CAPE LUIGI      "
 		incbin "bin/movies/ci5_cape.smwmovie"
 movie_CI5_B:
-        db "CI5 CAPELESS MARIO  "
+        db "CI5 CAPELESS LUIGI  "
 		incbin "bin/movies/ci5_nocape.smwmovie"
 movie_CS_A:
-        db "CS CAPE MARIO       "
+        db "CS CAPE LUIGI       "
 		incbin "bin/movies/cs_cape.smwmovie"
 movie_CS_B:
-        db "CS SMALL MARIO      "
+        db "CS SMALL LUIGI      "
 		incbin "bin/movies/cs_nocape.smwmovie"
 movie_CGH_A:
-        db "CGH CAPE MARIO      "
+        db "CGH CAPE LUIGI      "
 		incbin "bin/movies/cgh_cape.smwmovie"
 movie_CGH_B:
-        db "CGH FIRE MARIO      "
+        db "CGH FIRE LUIGI      "
 		incbin "bin/movies/cgh_nocape.smwmovie"
 movie_CF_A:
-        db "CF CAPE MARIO       "
+        db "CF CAPE LUIGI       "
 		incbin "bin/movies/cf_cape.smwmovie"
 movie_CF_B:
-        db "CF SMALL MARIO      "
+        db "CF SMALL LUIGI      "
 		incbin "bin/movies/cf_nocape.smwmovie"
 movie_C6_A:
-        db "C6 CAPE MARIO       "
+        db "C6 CAPE LUIGI       "
 		incbin "bin/movies/c6_cape.smwmovie"
 movie_C6_B:
-        db "C6 SMALL MARIO      "
+        db "C6 SMALL LUIGI      "
 		incbin "bin/movies/c6_nocape.smwmovie"
 
 movie_SGS_A:
-        db "SGS CAPE MARIO      "
+        db "SGS CAPE LUIGI      "
 		incbin "bin/movies/sgs_cape.smwmovie"
 movie_SGS_B:
-        db "SGS SMALL MARIO     "
+        db "SGS SMALL LUIGI     "
 		incbin "bin/movies/sgs_nocape.smwmovie"
 movie_VoB1_A:
-        db "VOB1 CAPE MARIO     "
+        db "VOB1 CAPE LUIGI     "
 		incbin "bin/movies/vob1_cape.smwmovie"
 movie_VoB1_B:
-        db "VOB1 SMALL MARIO    "
+        db "VOB1 SMALL LUIGI    "
 		incbin "bin/movies/vob1_nocape.smwmovie"
 movie_VoB2_A:
         db "VOB2 CAPE WINGS     "
@@ -558,16 +558,16 @@ movie_VoB2_B:
         db "VOB2 SANDBAR CLIP   "
 		incbin "bin/movies/vob2_clip.smwmovie"
 movie_VoB3_A:
-        db "VOB3 CAPE MARIO     "
+        db "VOB3 CAPE LUIGI     "
 		incbin "bin/movies/vob3_cape.smwmovie"
 movie_VoB3_B:
-        db "VOB3 FIRE MARIO     "
+        db "VOB3 FIRE LUIGI     "
 		incbin "bin/movies/vob3_nocape.smwmovie"
 movie_VoB4_A:
-        db "VOB4 CAPE MARIO     "
+        db "VOB4 CAPE LUIGI     "
 		incbin "bin/movies/vob4_cape.smwmovie"
 movie_VoB4_B:
-        db "VOB4 FIRE MARIO     "
+        db "VOB4 FIRE LUIGI     "
 		incbin "bin/movies/vob4_nocape.smwmovie"
 movie_VoBGH_A:
         db "VOBGH CAPE SECRET   "
@@ -576,28 +576,28 @@ movie_VoBGH_B:
         db "VOBGH NO CAPE SECRET"
 		incbin "bin/movies/vobgh_nocape.smwmovie"
 movie_VoBF_A:
-        db "VOBF CAPE MARIO     "
+        db "VOBF CAPE LUIGI     "
 		incbin "bin/movies/vobf_cape.smwmovie"
 movie_VoBF_B:
-        db "VOBF SMALL MARIO    "
+        db "VOBF SMALL LUIGI    "
 		incbin "bin/movies/vobf_nocape.smwmovie"
 movie_C7_A:
-        db "C7 CAPE MARIO       "
+        db "C7 CAPE LUIGI       "
 		incbin "bin/movies/c7_cape.smwmovie"
 movie_C7_B:
-        db "C7 SMALL MARIO      "
+        db "C7 SMALL LUIGI      "
 		incbin "bin/movies/c7_small.smwmovie"
 movie_FD_A:
         db "FD CLOUD BOWSER     "
 		incbin "bin/movies/fd_cloud.smwmovie"
 movie_FD_B:
-        db "FD CAPE MARIO       "
+        db "FD CAPE LUIGI       "
 		incbin "bin/movies/fd_cape.smwmovie"
 movie_BD_A:
         db "BD CAPE KILL        "
 		incbin "bin/movies/bd_cape.smwmovie"
 movie_BD_B:
-        db "BD SMALL MARIO      "
+        db "BD SMALL LUIGI      "
 		incbin "bin/movies/bd_small.smwmovie"
 
 movie_SW1_A:
@@ -635,16 +635,16 @@ movie_SP1_A:
         db "GNARLY CAPE WINGS   "
 		incbin "bin/movies/sp1_wings.smwmovie"
 movie_SP1_B:
-        db "GNARLY CAPE MARIO   "
+        db "GNARLY CAPE LUIGI   "
 		incbin "bin/movies/sp1_nowings.smwmovie"
 movie_SP2_A:
         db "TUBULAR CAPE WINGS  "
 		incbin "bin/movies/sp2_wings.smwmovie"
 movie_SP2_B:
-        db "TUBULAR CAPE MARIO  "
+        db "TUBULAR CAPE LUIGI  "
 		incbin "bin/movies/sp2_cape.smwmovie"
 movie_SP3_A:
-        db "WAY COOL CAPE MARIO "
+        db "WAY COOL CAPE LUIGI "
 		incbin "bin/movies/sp3_cape.smwmovie"
 movie_SP3_B:
         db "WAY COOL NO CAPE    "
@@ -653,19 +653,19 @@ movie_SP4_A:
         db "AWESOME BOSS KILL   "
 		incbin "bin/movies/sp4_ark.smwmovie"
 movie_SP4_B:
-        db "AWESOME SMALL MARIO "
+        db "AWESOME SMALL LUIGI "
 		incbin "bin/movies/sp4_small.smwmovie"
 movie_SP5_A:
-        db "GROOVY CAPE MARIO   "
+        db "GROOVY CAPE LUIGI   "
 		incbin "bin/movies/sp5_cape.smwmovie"
 movie_SP5_B:
         db "GROOVY BOSS KILL    "
 		incbin "bin/movies/sp5_gbk.smwmovie"
 movie_SP6_A:
-        db "MONDO CAPE MARIO    "
+        db "MONDO CAPE LUIGI    "
 		incbin "bin/movies/sp6_cape.smwmovie"
 movie_SP6_B:
-        db "MONDO FIRE MARIO    "
+        db "MONDO FIRE LUIGI    "
 		incbin "bin/movies/sp6_nocape.smwmovie"
 movie_SP7_A:
         db "OUTRAGEOUS CAPE     "
@@ -674,7 +674,7 @@ movie_SP7_B:
         db "OUTRAGEOUS KEEP YOSH"
 		incbin "bin/movies/sp7_keepyoshi.smwmovie"
 movie_SP8_A:
-        db "FUNKY SMALL MARIO   "
+        db "FUNKY SMALL LUIGI   "
 		incbin "bin/movies/sp8_small.smwmovie"
 movie_SP8_B:
         db "FUNKY SECRET EXIT   "
