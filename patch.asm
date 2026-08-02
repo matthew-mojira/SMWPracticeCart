@@ -11,6 +11,12 @@
 
 cleartable
 
+ORG !_F+$00B888
+  REP #$10
+  LDY.W #$8000
+  STY $8A
+  LDA.B #$1C
+
 ; internal rom name
 ORG !_F+$00FFC0
         db "SMW PRACTICE CART    "
@@ -45,6 +51,30 @@ incsrc "src/l_r_reset.asm"          ; $1A8000
 incsrc "src/movies.asm"             ; $1B8000 - $1C8000
 
 ; incbin "bin/spc_engine.bin"       ; $1F8000 (see relocations.asm)
+
+ORG !_F+$1C8000
+incbin "src/bin/GFX32_33_compressed.bin"
+
+; Luigi palette
+ORG !_F+$00B2C8
+  db $3F, $4F, $1D, $58, $40, $11, $E0, $3F, $07, $3C, $AE, $7C, $B3, $7D, $00, $2F
+  db $5F, $16, $FF, $03
+ORG !_F+$00B2F0
+  db $1F, $3B, $1D, $58, $29, $25, $FF, $7F, $40, $11, $E0, $01, $E0, $02, $7B, $57
+  db $DF, $0D, $FF, $03
+ORG !_F+$00B598
+  db $FF, $7F, $00, $00, $80, $02, $E0, $03, $08, $6D, $1A, $26, $3B, $57
+
+; LUIGI START
+ORG !_F+$0091DB
+  db $D0
+
+
+; fix S in Start
+ORG !_F+$00913F
+  db $34
+ORG !_F+$009170
+  db $F4
 
 ; make sure the ROM is expanded to the full 1MBit
 ORG !_F+$1FFFFF
